@@ -1,0 +1,22 @@
+.profile__userActivity {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .profile__userActivity {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__userActivity {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

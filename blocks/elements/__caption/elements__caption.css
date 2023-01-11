@@ -1,0 +1,23 @@
+.elements__caption {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+@media screen and (max-width: 1024px) {
+  .elements__caption {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .elements__caption {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}

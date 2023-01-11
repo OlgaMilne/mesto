@@ -1,0 +1,14 @@
+.popup__container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: calc( 100vh * 0.2 );
+  background-color: rgba(0, 0, 0, .5);
+}
+
+

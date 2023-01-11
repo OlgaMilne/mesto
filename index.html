@@ -14,73 +14,85 @@
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="">
+    <div class="header__logo"></div>
   </header>
 
   <main>
     <section class="profile">
-      <img class="profile__avatar" src="/images/avatar_Jacques-Yves Cousteau.jpg" alt="портрет Жак-Ив Кусто">
+      <img class="profile__avatar" src="./images/avatar_Jacques_Yves_Cousteau.jpg" alt="аватар пользователя">
       <div class="profile__info">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <input class="profile__edit-button" type="edit">
-        <p class="profile__subtitle">Исследователь океана</p>
+        <h1 class="profile__userName">Жак-Иванович Кустодиев</h1>
+        <input class="profile__edit-button" type="button" value="">
+        <p class="profile__userActivity">Исследователь океана</p>
       </div>
-      <input class="profile__add-button" type="add">
+      <input class="profile__add-button" type="button" value="">
     </section>
 
-    <section class="gallery">
+    <section class="gallery" aria-label="фото галерея">
       <ul class="elements">
         <li class="elements__item">
-          <img class="elements__photo" src="/images/elements-photo-karachaevsk.jpg" alt="Карачаевск">
-          <d class="elements__text">
+          <img class="elements__photo" src="./images/elements-photo-karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__info">
             <p class="elements__caption">Карачаевск</p>
-            <input class="elements__like-button" type="like">
-            </div>
+            <div class="elements__like-button"></div>
+          </div>
         </li>
         <li class="elements__item">
-          <img class="elements__photo" src="/images/elements-photo-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="elements__text">
+          <img class="elements__photo" src="./images/elements-photo-elbrus.jpg" alt="Гора Эльбрус">
+          <div class="elements__info">
             <p class="elements__caption">Гора Эльбрус</p>
-            <input class="elements__like-button" type="like">
+            <div class="elements__like-button"></div>
           </div>
         </li>
         <li class="elements__item">
-          <img class="elements__photo" src="/images/elements-photo-dombai.jpg" alt="Домбай">
-          <div class="elements__text">
+          <img class="elements__photo" src="./images/elements-photo-dombai.jpg" alt="Домбай">
+          <div class="elements__info">
             <p class="elements__caption">Домбай</p>
-            <input class="elements__like-button" type="like">
+            <div class="elements__like-button"></div>
           </div>
         </li>
         <li class="elements__item">
-          <img class="elements__photo" src="/images/elements-photo-karachaevsk.jpg" alt="Карачаевск">
-          <div class="elements__text">
+          <img class="elements__photo" src="./images/elements-photo-karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__info">
             <p class="elements__caption">Карачаевск</p>
-            <input class="elements__like-button" type="like">
+            <div class="elements__like-button"></div>
           </div>
         </li>
         <li class="elements__item">
-          <img class="elements__photo" src="/images/elements-photo-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="elements__text">
+          <img class="elements__photo" src="./images/elements-photo-elbrus.jpg" alt="Гора Эльбрус">
+          <div class="elements__info">
             <p class="elements__caption">Гора Эльбрус</p>
-            <input class="elements__like-button" type="like">
+            <div class="elements__like-button"></div>
           </div>
         </li>
         <li class="elements__item">
-          <img class="elements__photo" src="/images/elements-photo-dombai.jpg" alt="Домбай">
-          <div class="elements__text">
+          <img class="elements__photo" src="./images/elements-photo-dombai.jpg" alt="Домбай">
+          <div class="elements__info">
             <p class="elements__caption">Домбай</p>
-            <input class="elements__like-button" type="like">
+            <div class="elements__like-button"></div>
           </div>
         </li>
-
       </ul>
+    </section>
 
+    <section class="popup__container popup__container_visibility_hidden">
+      <form class="edit-form edit-form_visibility_hidden" name="edit-form">
+        <h3 class="edit-form__heading">Редактировать профиль</h3>
+        <input class="edit-form__item" type="text" name="userName" placeholder="имя"  required>
+        <input class="edit-form__item" type="text" name="userActivity" placeholder="дейтельность"
+           required>
+        <button class="edit-form__button" type="submit">Сохранить</button>
+        <div class="edit-form__close-button"></div>
+      </form>
     </section>
 
   </main>
+
   <footer class="footer">
-<p class="footer__copyright">© 2020 Mesto Russia</p>
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
+
+  <script src="scripts/index.js"></script>
 
 </body>
 

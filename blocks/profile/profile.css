@@ -1,0 +1,33 @@
+.profile {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  width: 880px;
+  margin: 0 auto 50px;
+  justify-content: stretch;
+  align-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile {
+    width: 86%;
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .profile {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-bottom: 36px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    width: 282px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-bottom: 36px;
+  }
+}

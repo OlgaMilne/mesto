@@ -1,0 +1,9 @@
+.elements__info {
+  width: 85.8%;
+  min-height: 80px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
