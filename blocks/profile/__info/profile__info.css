@@ -13,9 +13,9 @@
   -ms-flex-line-pack: stretch;
   align-content: stretch;
   justify-items: start;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 7px 18px;
   margin: 0 20px 0 30px;
   -webkit-box-sizing: border-box;
