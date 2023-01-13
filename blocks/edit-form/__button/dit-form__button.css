@@ -1,5 +1,7 @@
 .edit-form__button {
   font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   display: inline-block;
   width: 358px;
@@ -26,14 +28,13 @@
     width: 84%;
     font-size: 14px;
     line-height: 17px;
+    margin-top: 15px;
   }
 }
 
-  @media screen and (max-width: 320px) {
-    .edit-form__button {
-      width: 238px;
-      height: 46px;
-      font-size: 14px;
-      line-height: 17px;
-    }
+@media screen and (max-width: 320px) {
+  .edit-form__button {
+    width: 238px;
+    height: 46px;
   }
+}

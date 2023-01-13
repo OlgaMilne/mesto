@@ -1,11 +1,13 @@
 .header__logo {
+  display: block;
   width: 142px;
   height: 33px;
   background-image: url(../../../images/logo.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  cursor: pointer;
+  border: none;
+  text-decoration: none;
 }
 
 .header__logo:hover {

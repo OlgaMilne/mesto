@@ -2,19 +2,21 @@
   display: block;
   width: 358px;
   height: 27px;
-  border-left: 0;
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 1px solid #000000;
-  margin: 0 auto 30px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  box-sizing: border-box;
+  margin: 0 auto 30px;
   padding: 0 2px 13px;
+  outline: none;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #000000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 480px) {

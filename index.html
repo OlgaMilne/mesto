@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Olga Milne">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Интересные места, открытые разными людьми">
+  <meta name="keywords" content="travel, photography, nature, geography">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
@@ -14,76 +14,90 @@
 <body class="page">
 
   <header class="header">
-    <div class="header__logo"></div>
+    <a class="header__logo"></a>
   </header>
 
   <main>
+
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar_Jacques_Yves_Cousteau.jpg" alt="аватар пользователя">
+      <img class="profile__avatar" src="./images/avatar_kiprensky.jpg" alt="аватар пользователя">
       <div class="profile__info">
-        <h1 class="profile__userName">Жак-Иванович Кустодиев</h1>
-        <input class="profile__edit-button" type="button" value="">
-        <p class="profile__userActivity">Исследователь океана</p>
+        <h1 class="profile__userName">Орест Адамович Кипренский</h1>
+        <button class="profile__edit-button" type="button"></button>
+        <p class="profile__userActivity">Русский художник</p>
       </div>
-      <input class="profile__add-button" type="button" value="">
+      <button class="profile__add-button" type="button"></button>
     </section>
 
     <section class="gallery" aria-label="фото галерея">
-      <ul class="elements">
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements-photo-karachaevsk.jpg" alt="Карачаевск">
-          <div class="elements__info">
-            <p class="elements__caption">Карачаевск</p>
-            <div class="elements__like-button"></div>
+      <ul class="cards">
+        <li class="cards__item">
+          <div class="cards__aspect-ratio-box">
+            <img class="cards__photo" src="./images/cards-photo-nizhny_novgorod.jpg" alt="Нижний Новгород">
+          </div>
+          <div class="cards__info">
+            <p class="cards__caption">Нижний Новгород</p>
+            <button class="cards__like-button"></button>
           </div>
         </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements-photo-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="elements__info">
-            <p class="elements__caption">Гора Эльбрус</p>
-            <div class="elements__like-button"></div>
+        <li class="cards__item">
+          <div class="cards__aspect-ratio-box">
+            <img class="cards__photo" src="./images/cards-photo-elbrus.jpg" alt="Гора Эльбрус">
+          </div>
+          <div class="cards__info">
+            <p class="cards__caption">Гора Эльбрус</p>
+            <button class="cards__like-button"></button>
           </div>
         </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements-photo-dombai.jpg" alt="Домбай">
-          <div class="elements__info">
-            <p class="elements__caption">Домбай</p>
-            <div class="elements__like-button"></div>
+        <li class="cards__item">
+          <div class="cards__aspect-ratio-box">
+            <img class="cards__photo" src="./images/cards-photo-dombai.jpg" alt="Домбай">
+          </div>
+          <div class="cards__info">
+            <p class="cards__caption">Домбай</p>
+            <button class="cards__like-button"></button>
           </div>
         </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements-photo-karachaevsk.jpg" alt="Карачаевск">
-          <div class="elements__info">
-            <p class="elements__caption">Карачаевск</p>
-            <div class="elements__like-button"></div>
+        <li class="cards__item">
+          <div class="cards__aspect-ratio-box">
+            <img class="cards__photo" src="./images/cards-photo-karelia.jpg" alt="Карелия">
+          </div>
+          <div class="cards__info">
+            <p class="cards__caption">Карелия</p>
+            <button class="cards__like-button"></button>
           </div>
         </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements-photo-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="elements__info">
-            <p class="elements__caption">Гора Эльбрус</p>
-            <div class="elements__like-button"></div>
+        <li class="cards__item">
+          <div class="cards__aspect-ratio-box">
+            <img class="cards__photo" src="./images/cards-photo-anapa.jpg" alt="Анапа">
+          </div>
+          <div class="cards__info">
+            <p class="cards__caption">Анапа</p>
+            <button class="cards__like-button"></button>
           </div>
         </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements-photo-dombai.jpg" alt="Домбай">
-          <div class="elements__info">
-            <p class="elements__caption">Домбай</p>
-            <div class="elements__like-button"></div>
+        <li class="cards__item">
+          <div class="cards__aspect-ratio-box">
+            <img class="cards__photo" src="./images/cards-photo-karachay-cherkessia.jpg" alt="Домбай">
+          </div>
+          <div class="cards__info">
+            <p class="cards__caption">Карачаево-Черкессия</p>
+            <button class="cards__like-button"></button>
           </div>
         </li>
       </ul>
     </section>
 
-    <section class="popup__container popup__container_visibility_hidden">
-      <form class="edit-form edit-form_visibility_hidden" name="edit-form">
-        <h3 class="edit-form__heading">Редактировать профиль</h3>
-        <input class="edit-form__item" type="text" name="userName" placeholder="имя"  required>
-        <input class="edit-form__item" type="text" name="userActivity" placeholder="дейтельность"
-           required>
-        <button class="edit-form__button" type="submit">Сохранить</button>
-        <div class="edit-form__close-button"></div>
-      </form>
+    <section class="popup">
+      <div class="popup__container ">
+        <form class="edit-form" name="edit-form">
+          <h3 class="edit-form__heading">Редактировать профиль</h3>
+          <input class="edit-form__item" type="text" name="userName" placeholder="Имя" required>
+          <input class="edit-form__item" type="text" name="userActivity" placeholder="О себе" required>
+          <button class="edit-form__button" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__close-button"></button>
+      </div>
     </section>
 
   </main>
@@ -92,7 +106,7 @@
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
 
-  <script src="scripts/index.js"></script>
+  <script src="./scripts/index.js"></script>
 
 </body>
 

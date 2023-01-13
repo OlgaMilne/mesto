@@ -1,6 +1,8 @@
-.elements__like-button {
+.cards__like-button {
+  display: block;
   width: 22px;
   height: 19px;
+  background-color: rgba(255, 255, 255, 0);
   background-image: url(../../../images/sign-like.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -8,12 +10,14 @@
   margin: 0;
   padding: 0;
   cursor: pointer;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
-.elements__like-button:hover {
+.cards__like-button:hover {
   opacity: .5;
 }
 
-.elements__like-button_active {
+.cards__like-button_active {
   background-image: url(../../../images/sign-like-active.svg);
 }
