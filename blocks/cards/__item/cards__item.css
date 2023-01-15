@@ -1,5 +1,4 @@
 .cards__item {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,4 +11,5 @@
   justify-content: space-between;
   background-color: #fff;
   border-radius: 10px;
+  overflow: hidden;
 }

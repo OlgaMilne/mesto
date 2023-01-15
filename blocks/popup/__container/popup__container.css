@@ -2,8 +2,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
   position: relative;
-  width: 430px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -16,11 +19,5 @@
 @media screen and (max-width: 480px) {
   .popup__container {
     width: 88%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .popup__container {
-    width: 282px;
   }
 }

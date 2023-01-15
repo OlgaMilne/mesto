@@ -1,17 +1,21 @@
-.edit-form__heading {
+.popup__heading {
+  position: absolute;
+  top: 34px;
+  width: 83.25%;
   max-width: 358px;
   font-family: inherit;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  color: #000000;
+  color: #000;
   margin: 0 0 48px;
   text-align: left;
+  z-index: 2;
 }
 
 @media screen and (max-width: 480px) {
-  .edit-form__heading {
+  .popup__heading {
     width: 84%;
     font-size: 18px;
     line-height: 22px;
@@ -19,8 +23,9 @@
 }
 
 @media screen and (max-width: 320px) {
-  .edit-form__heading {
+  .popup__heading {
     max-width: 238px;
+    top: 25px;
     margin-bottom: 75px;
   }
 }

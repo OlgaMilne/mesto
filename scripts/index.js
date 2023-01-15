@@ -30,14 +30,3 @@ editFormElement.addEventListener('submit', writeUser);
 
 closeButtonElement.addEventListener('click', closeEditForm);
 
-/* for 5 sprint
-const likeButtonsElement = document.querySelectorAll('.cards__like-button');
-
-function togglelLikeButton() {
-  this.classList.toggle('cards__like-button_active');
-}
-
-for (let i = 0; i < likeButtonsElement.length; i++) {
-  likeButtonsElement[i].addEventListener('click', togglelLikeButton);
-}
-*/

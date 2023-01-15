@@ -1,7 +1,6 @@
 .header {
   display: flex;
   width: 880px;
-  height: 74px;
   margin: 45px auto 40px;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
@@ -9,12 +8,6 @@
 @media screen and (max-width: 1024px) {
   .header {
     width: 86%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .header {
-    height: 56px;
   }
 }
 
