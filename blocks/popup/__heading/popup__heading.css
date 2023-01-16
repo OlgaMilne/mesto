@@ -1,8 +1,5 @@
 .popup__heading {
-  position: absolute;
-  top: 34px;
-  width: 83.25%;
-  max-width: 358px;
+  width: 100%;
   font-family: inherit;
   font-style: normal;
   font-weight: 900;
@@ -10,22 +7,17 @@
   line-height: 29px;
   color: #000;
   margin: 0 0 48px;
+  padding: 0;
   text-align: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   z-index: 2;
 }
 
 @media screen and (max-width: 480px) {
   .popup__heading {
-    width: 84%;
+    margin-bottom: 75px;
     font-size: 18px;
     line-height: 22px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .popup__heading {
-    max-width: 238px;
-    top: 25px;
-    margin-bottom: 75px;
   }
 }
