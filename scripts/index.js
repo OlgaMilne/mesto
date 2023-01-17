@@ -5,15 +5,14 @@ const popupElement = document.querySelector('.popup');
 const editFormElement = document.querySelector('.edit-form');
 const userNameElement = document.querySelector('.profile__userName');
 const userActivityElement = document.querySelector('.profile__userActivity');
-const userNameInputElement = document.querySelector('.edit-form__item_userName');
-const userActivityInputElement = document.querySelector('.edit-form__item_userActivity');
+const userNameInputElement = document.querySelector('.edit-form__item_name_userName');
+const userActivityInputElement = document.querySelector('.edit-form__item_name_userActivity');
 const closeButtonElement = document.querySelector('.popup__close-button');
-
-userNameInputElement.placeholder = userNameElement.textContent;
-userActivityInputElement.placeholder = userActivityElement.textContent;
 
 function showEditForm() {
   popupElement.classList.add('popup_opened');
+  userNameInputElement.value = userNameElement.textContent;
+  userActivityInputElement.value = userActivityElement.textContent;
 }
 
 function closeEditForm() {
