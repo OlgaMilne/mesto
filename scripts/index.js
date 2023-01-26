@@ -62,6 +62,7 @@ function addCard(evt) {
 function showImage() {
   imagePopupElement.closest('.popup').classList.add('popup_opened');
   imagePopupElement.querySelector('.image-popup__image').src = this.src;
+  imagePopupElement.querySelector('.image-popup__image').alt = this.alt;
   imagePopupElement.querySelector('.image-popup__caption').textContent = this.alt;
 }
 
