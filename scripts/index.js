@@ -13,6 +13,7 @@ const closeButtonPopupElements = document.querySelectorAll('.popup__close-button
 const addButtonElement = document.querySelector('.profile__add-button');
 const cardTemlate = document.querySelector('#card-template').content;
 const cardsElement = document.querySelector('.cards');
+const imagePopupElement = document.querySelector('.image-popup');
 
 
 function showEditForm() {
@@ -47,7 +48,7 @@ function deleteCard() {
 }
 
 
-function addCard( evt ) {
+function addCard(evt) {
   evt.preventDefault();
   const itemCardElement = cardTemlate.cloneNode(true);
   itemCardElement.querySelector('.cards__caption').textContent = locationInputElement.value;
@@ -57,6 +58,12 @@ function addCard( evt ) {
   itemCardElement.querySelector('.cards__trash-button').addEventListener('click', deleteCard);
   cardsElement.prepend(itemCardElement);
   closeForm(evt);
+}
+
+function showImage() {
+  imagePopupElement.closest('.popup').classList.add('popup_opened');
+  imagePopupElement.querySelector('.image-popup__image').src = this.src;
+  imagePopupElement.querySelector('.image-popup__caption').textContent = this.alt;
 }
 
 editButtonElement.addEventListener('click', showEditForm);
@@ -100,12 +107,13 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach( function (item)  {
+initialCards.forEach(function (item) {
   const itemCardElement = cardTemlate.cloneNode(true);
   itemCardElement.querySelector('.cards__caption').textContent = item.name;
   itemCardElement.querySelector('.cards__photo').src = item.link;
   itemCardElement.querySelector('.cards__photo').alt = item.name;
   itemCardElement.querySelector('.cards__like-button').addEventListener('click', likeCard);
+  itemCardElement.querySelector('.cards__photo').addEventListener('click', showImage);
   itemCardElement.querySelector('.cards__trash-button').addEventListener('click', deleteCard);
   cardsElement.prepend(itemCardElement);
 });

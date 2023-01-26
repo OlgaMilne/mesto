@@ -39,8 +39,10 @@
     <div class="popup__container ">
       <h3 class="popup__heading">Редактировать профиль</h3>
       <form class="edit-form" name="edit-form">
-        <input class="edit-form__item edit-form__item_name_userName" type="text" name="userName" placeholder="Имя" required>
-        <input class="edit-form__item edit-form__item_name_userActivity" type="text" name="userActivity" placeholder="О себе" required>
+        <input class="edit-form__item edit-form__item_name_userName" type="text" name="userName" placeholder="Имя"
+          required>
+        <input class="edit-form__item edit-form__item_name_userActivity" type="text" name="userActivity"
+          placeholder="О себе" required>
         <button class="edit-form__button" type="submit">Сохранить</button>
       </form>
       <button class="popup__close-button" type="button"></button>
@@ -51,10 +53,20 @@
     <div class="popup__container ">
       <h3 class="popup__heading">Новое место</h3>
       <form class="add-form" name="add-form">
-        <input class="add-form__item add-form__item_name_location" type="text" name="location" placeholder="Место" required>
-        <input class="add-form__item add-form__item_name_linkImage" type="text" name="linkImage" placeholder="Ссылка на картинку" required>
+        <input class="add-form__item add-form__item_name_location" type="text" name="location" placeholder="Место"
+          required>
+        <input class="add-form__item add-form__item_name_linkImage" type="text" name="linkImage"
+          placeholder="Ссылка на картинку" required>
         <button class="add-form__button" type="submit">Создать</button>
       </form>
+      <button class="popup__close-button" type="button"></button>
+    </div>
+  </section>
+
+  <section class="popup">
+    <div class="image-popup">
+      <img class="image-popup__image" src="" alt="">
+      <p class="image-popup__caption"></p>
       <button class="popup__close-button" type="button"></button>
     </div>
   </section>
@@ -63,7 +75,7 @@
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
 
-  <template id = "card-template">
+  <template id="card-template">
     <li class="cards__item">
       <img class="cards__photo" src="" alt="">
       <div class="cards__info">
