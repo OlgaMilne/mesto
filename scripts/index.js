@@ -47,7 +47,6 @@ function deleteCard() {
   this.closest('.cards__item').remove();
 }
 
-
 function addCard(evt) {
   evt.preventDefault();
   const itemCardElement = cardTemlate.cloneNode(true);
