@@ -10,9 +10,9 @@ const userActivityInputElement = document.querySelector('.edit-form__item_name_u
 const closeButtonElement = document.querySelector('.popup__close-button');
 
 function showEditForm() {
-  popupElement.classList.add('popup_opened');
   userNameInputElement.value = userNameElement.textContent;
   userActivityInputElement.value = userActivityElement.textContent;
+  popupElement.classList.add('popup_opened');
 }
 
 function closeEditForm() {

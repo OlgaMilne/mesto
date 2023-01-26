@@ -88,9 +88,32 @@
     </div>
   </section>
 
+  <section class="popup">
+    <div class="popup__container ">
+      <h3 class="popup__heading">Новое место</h3>
+      <form class="add-form" name="add-form">
+        <input class="add-form__item add-form__item_name_location" type="text" name="location" placeholder="Место" required>
+        <input class="add-form__item add-form__item_name_linkImage" type="text" name="linkImage" placeholder="Ссылка на картинку" required>
+        <button class="add-form__button" type="submit">Создать</button>
+      </form>
+      <button class="popup__close-button" type="button"></button>
+    </div>
+  </section>
+
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
+
+  <template id = "cardTemlate">
+    <li class="cards__item">
+      <img class="cards__photo" src="" alt="">
+      <div class="cards__info">
+        <h2 class="cards__caption"></h2>
+        <button class="cards__like-button" type="button"></button>
+      </div>
+      <button class="cards__trash-button" type="button"></button>
+    </li>
+  </template>
 
   <script src="./scripts/index.js"></script>
 
