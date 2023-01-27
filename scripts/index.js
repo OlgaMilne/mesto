@@ -53,6 +53,7 @@ function addCard(evt) {
   itemCardElement.querySelector('.cards__caption').textContent = locationInputElement.value;
   itemCardElement.querySelector('.cards__photo').src = linkImageInputElement.value;
   itemCardElement.querySelector('.cards__photo').alt = locationInputElement.value;
+  itemCardElement.querySelector('.cards__photo').addEventListener('click', showImage);
   itemCardElement.querySelector('.cards__like-button').addEventListener('click', likeCard);
   itemCardElement.querySelector('.cards__trash-button').addEventListener('click', deleteCard);
   cardsElement.prepend(itemCardElement);
@@ -112,8 +113,8 @@ initialCards.forEach(function (item) {
   itemCardElement.querySelector('.cards__caption').textContent = item.name;
   itemCardElement.querySelector('.cards__photo').src = item.link;
   itemCardElement.querySelector('.cards__photo').alt = item.name;
-  itemCardElement.querySelector('.cards__like-button').addEventListener('click', likeCard);
   itemCardElement.querySelector('.cards__photo').addEventListener('click', showImage);
+  itemCardElement.querySelector('.cards__like-button').addEventListener('click', likeCard);
   itemCardElement.querySelector('.cards__trash-button').addEventListener('click', deleteCard);
   cardsElement.prepend(itemCardElement);
 });
