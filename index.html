@@ -35,7 +35,7 @@
     </section>
   </main>
 
-  <section class="popup">
+  <section class="popup popup_for_edit-form">
     <div class="popup__container ">
       <h3 class="popup__heading">Редактировать профиль</h3>
       <form class="edit-form" name="edit-form">
@@ -49,7 +49,7 @@
     </div>
   </section>
 
-  <section class="popup">
+  <section class="popup popup_for_add-form">
     <div class="popup__container ">
       <h3 class="popup__heading">Новое место</h3>
       <form class="add-form" name="add-form">
@@ -63,7 +63,7 @@
     </div>
   </section>
 
-  <section class="popup">
+  <section class="popup popup_for_image popup_overlay_dark">
     <div class="image-popup">
       <img class="image-popup__image" src="./images/blank_img.svg" alt="описание">
       <p class="image-popup__caption"></p>
@@ -76,16 +76,17 @@
   </footer>
 
   <template id="card-template">
-    <li class="cards__item">
-      <img class="cards__photo" src="./images/blank_img.svg" alt="описание">
-      <div class="cards__info">
-        <h2 class="cards__caption"></h2>
-        <button class="cards__like-button" type="button"></button>
+    <li class="card">
+      <img class="card__photo" src="./images/blank_img.svg" alt="описание">
+      <div class="card__info">
+        <h2 class="card__caption"></h2>
+        <button class="card__like-button" type="button"></button>
       </div>
-      <button class="cards__trash-button" type="button"></button>
+      <button class="card__trash-button" type="button"></button>
     </li>
   </template>
 
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 
 </body>

@@ -1,15 +1,14 @@
 .cards {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, 282px);
   gap: 20px 17px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: start;
+  align-content: start;
   list-style: none;
   margin: 0 auto;
   padding: 0;
-}
-
-@media screen and (max-width: 1024px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    column-gap: 20px;
-  }
 }
