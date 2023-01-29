@@ -25,16 +25,16 @@ const cardTemlate = document.querySelector('#card-template').content;
 const buttonClosePopupElements = document.querySelectorAll('.popup__close-button');
 
 
-function createCard(location, link) {
+function createCard(cardData) {
   const itemCardElement = cardTemlate.cloneNode(true);
   const imageCardElement = itemCardElement.querySelector('.card__photo');
   const captionCardElement = itemCardElement.querySelector('.card__caption');
   const likeCardElement = itemCardElement.querySelector('.card__like-button');
   const buttonTrashCardElement = itemCardElement.querySelector('.card__trash-button');
-  captionCardElement.textContent = location;
-  imageCardElement.src = link;
-  imageCardElement.alt = location;
-  imageCardElement.addEventListener('click', () => showImage(location, link));
+  captionCardElement.textContent = cardData.location;
+  imageCardElement.src = cardData.link;
+  imageCardElement.alt = cardData.location;
+  imageCardElement.addEventListener('click', () => showImage(cardData));
   likeCardElement.addEventListener('click', likeCard);
   buttonTrashCardElement.addEventListener('click', deleteCard);
   return itemCardElement;
@@ -61,10 +61,10 @@ function closePopup(popup) {
 }
 
 
-function showImage(location, link) {
-  imageElement.src = link;
-  imageElement.alt = location;
-  captionElement.textContent = location;
+function showImage(cardData) {
+  imageElement.src = cardData.link;
+  imageElement.alt = cardData.location;
+  captionElement.textContent = cardData.location;
   openPopup(popupImageElement);
 }
 
@@ -93,17 +93,21 @@ function writeProfileUser(evt) {
 
 function addCard(evt) {
   evt.preventDefault();
-  let location = locationInputElement.value;
-  let link = linkImageInputElement.value;
-  cardsElement.prepend(createCard(location, link));
+  const cardData = {
+    'location': locationInputElement.value,
+    'link': linkImageInputElement.value,
+  }
+  cardsElement.prepend(createCard(cardData));
   closePopup(popupAddCardElement);
 }
 
 
 initialCards.forEach(function (item) {
-  let location = item.name;
-  let link = item.link;
-  cardsElement.prepend(createCard(location, link));
+  const cardData = {
+    'location': item.name,
+    'link': item.link,
+  }
+  cardsElement.prepend(createCard(cardData));
 });
 
 
@@ -116,5 +120,3 @@ buttonAddCardElement.addEventListener('click', openAddCardForm);
 buttonProfileEditElement.addEventListener('click', openProfileEditForm);
 
 buttonClosePopupElements.forEach((item) => item.addEventListener('click', () => closePopup(item.closest('.popup'))));
-
-
