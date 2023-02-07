@@ -1,4 +1,4 @@
-.edit-form__item {
+.form__item {
   display: block;
   width: 100%;
   font-family: inherit;
@@ -7,7 +7,7 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  margin: 0 auto 30px;
+  margin: 0 auto 5px;
   padding: 0 2px 9px;
   outline: none;
   border-left: 0;

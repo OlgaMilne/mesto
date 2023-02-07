@@ -35,29 +35,33 @@
     </section>
   </main>
 
-  <section class="popup popup_for_edit-form">
+  <section class="popup popup_for_profile-edit">
     <div class="popup__container ">
       <h3 class="popup__heading">Редактировать профиль</h3>
-      <form class="edit-form" name="edit-form">
-        <input class="edit-form__item edit-form__item_name_userName" type="text" name="userName" placeholder="Имя"
-          required>
-        <input class="edit-form__item edit-form__item_name_userActivity" type="text" name="userActivity"
-          placeholder="О себе" required>
-        <button class="edit-form__button" type="submit">Сохранить</button>
+      <form class="form form_name_profile-edit" name="profile-edit" novalidate>
+        <input class="form__item form__item_name_userName" type="text" name="userName" placeholder="Имя" minlength="2"
+          maxlength="40" required>
+        <span class="form__item-error form__item-error_name_userName"> </span>
+        <input class="form__item form__item_name_userActivity" type="text" name="userActivity" placeholder="О себе"
+          minlength="2" maxlength="200" required>
+        <span class="form__item-error form__item-error_name_userActivity"> </span>
+        <button class="form__button" type="submit">Сохранить</button>
       </form>
       <button class="popup__close-button" type="button"></button>
     </div>
   </section>
 
-  <section class="popup popup_for_add-form">
-    <div class="popup__container ">
+  <section class="popup popup_for_add-card">
+    <div class="popup__container">
       <h3 class="popup__heading">Новое место</h3>
-      <form class="add-form" name="add-form">
-        <input class="add-form__item add-form__item_name_location" type="text" name="location" placeholder="Место"
+      <form class="form form_name_add-card" name="add-card" novalidate>
+        <input class="form__item form__item_name_location" type="text" name="location" placeholder="Место" minlength="2"
+          maxlength="30" required>
+        <span class="form__item-error form__item-error_name_location"> </span>
+        <input class="form__item form__item_name_linkImage" type="url" name="linkImage" placeholder="Ссылка на картинку"
           required>
-        <input class="add-form__item add-form__item_name_linkImage" type="text" name="linkImage"
-          placeholder="Ссылка на картинку" required>
-        <button class="add-form__button" type="submit">Создать</button>
+        <span class="form__item-error form__item-error_name_linkImage"> </span>
+        <button class="form__button" type="submit">Создать</button>
       </form>
       <button class="popup__close-button" type="button"></button>
     </div>
@@ -87,6 +91,7 @@
   </template>
 
   <script src="./scripts/cards.js"></script>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 
 </body>

@@ -1,14 +1,14 @@
 'use strict';
 
-const popupEditProfileElement = document.querySelector('.popup_for_edit-form');
-const formProfileEditElement = popupEditProfileElement.querySelector('.edit-form');
-const userNameInputElement = popupEditProfileElement.querySelector('.edit-form__item_name_userName');
-const userActivityInputElement = popupEditProfileElement.querySelector('.edit-form__item_name_userActivity');
+const popupEditProfileElement = document.querySelector('.popup_for_profile-edit');
+const formProfileEditElement = popupEditProfileElement.querySelector('.form_name_profile-edit');
+const userNameInputElement = popupEditProfileElement.querySelector('.form__item_name_userName');
+const userActivityInputElement = popupEditProfileElement.querySelector('.form__item_name_userActivity');
 
-const popupAddCardElement = document.querySelector('.popup_for_add-form');
-const formAddCardElement = popupAddCardElement.querySelector('.add-form');
-const locationInputElement = popupAddCardElement.querySelector('.add-form__item_name_location');
-const linkImageInputElement = popupAddCardElement.querySelector('.add-form__item_name_linkImage');
+const popupAddCardElement = document.querySelector('.popup_for_add-card');
+const formAddCardElement = popupAddCardElement.querySelector('.form_name_add-card');
+const locationInputElement = popupAddCardElement.querySelector('.form__item_name_location');
+const linkImageInputElement = popupAddCardElement.querySelector('.form__item_name_linkImage');
 
 const popupImageElement = document.querySelector('.popup_for_image');
 const imageElement = popupImageElement.querySelector('.image-popup__image')

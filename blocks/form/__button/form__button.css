@@ -1,4 +1,4 @@
-.edit-form__button {
+.form__button {
   font-family: inherit;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -20,12 +20,16 @@
   cursor: pointer;
 }
 
-.edit-form__button:hover {
+.form__button:hover {
   opacity: .8;
 }
 
+.form__button:disabled {
+  opacity: .2;
+}
+
 @media screen and (max-width: 480px) {
-  .edit-form__button {
+  .form__button {
     font-size: 14px;
     line-height: 17px;
     margin-top: 15px;

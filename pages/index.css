@@ -40,15 +40,20 @@
 @import url(../blocks/popup/__close-button/popup__close-button.css );
 @import url(../blocks/popup/_overlay/_dark/popup_overlay_dark.css);
 
-/*edit-form*/
-@import url(../blocks/edit-form/edit-form.css );
-@import url(../blocks/edit-form/__item/edit-form__item.css );
-@import url(../blocks/edit-form/__button/edit-form__button.css );
+/*form*/
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__item/form__item.css);
+@import url(../blocks/form/__item/_type/_error/form__item_type_error.css);
+@import url(../blocks/form/__item-error/form__item-error.css);
+@import url(../blocks/form/__item-error/_active/form__item-error_active.css);
+@import url(../blocks/form/__button/form__button.css);
+@import url(../blocks/form/__button/_inactive/form__button_inactive.css);
 
-/*add-form*/
+/*add-form
 @import url(../blocks/add-form/add-form.css);
 @import url(../blocks/add-form/__item/add-form__item.css);
 @import url(../blocks/add-form/__button/add-form__button.css);
+*/
 
 /*image-popup*/
 @import url(../blocks/image-popup/image-popup.css);
