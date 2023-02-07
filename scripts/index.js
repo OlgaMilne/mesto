@@ -24,6 +24,8 @@ const cardsElement = document.querySelector('.cards');
 const cardTemlate = document.querySelector('#card-template').content;
 const buttonClosePopupElements = document.querySelectorAll('.popup__close-button');
 
+const popupList = Array.from(document.querySelectorAll('.popup'));
+
 
 function createCard(cardData) {
   const itemCardElement = cardTemlate.cloneNode(true);
@@ -91,6 +93,13 @@ function writeProfileUser(evt) {
 }
 
 
+function isPopupOpen() {
+  return popupList.find((item) => {
+    return Array.from(item.classList).includes('popup_opened');
+  });
+}
+
+
 function addCard(evt) {
   evt.preventDefault();
   const cardData = {
@@ -120,3 +129,18 @@ buttonAddCardElement.addEventListener('click', openAddCardForm);
 buttonProfileEditElement.addEventListener('click', openProfileEditForm);
 
 buttonClosePopupElements.forEach((item) => item.addEventListener('click', () => closePopup(item.closest('.popup'))));
+
+popupList.forEach((item) => {
+  item.addEventListener('click', (evt) => {
+    if (evt.target === item) {
+      closePopup(item)
+    }
+  });
+});
+
+document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    const popup = isPopupOpen();
+    closePopup( popup );
+  }
+});

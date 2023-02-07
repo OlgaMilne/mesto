@@ -48,12 +48,11 @@ const checkInputValidity = (inputElement, errorElement, inputErrorClass, errorCl
       сейчас\u00A0${inputElement.value.length}\u00A0символ`;
     showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
 
-  } else if (inputElement.type === 'url' &&  !((inputElement.value.startsWith('http://') && inputElement.value.length > 7) || (inputElement.value.startsWith('https://') && inputElement.value.length > 8)) ) {
+  } else if (inputElement.type === 'url' && !((inputElement.value.startsWith('http://') && inputElement.value.length > 7) || (inputElement.value.startsWith('https://') && inputElement.value.length > 8))) {
     errorMessage = 'Введите адрес сайта';
     showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
 
   } else {
-    console.log('ok');
     hideInputError(inputElement, errorElement, inputErrorClass, errorClass);
   }
 };
