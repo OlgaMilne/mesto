@@ -71,8 +71,6 @@ const enableValidation = (setFormsItems) => {
     const inputsList = Array.from(form.querySelectorAll(inputSelector));
     const button = form.querySelector(submitButtonSelector);
 
-    toggleButtonState(button, inactiveButtonClass, hasInvalidInput(inputsList));
-
     inputsList.forEach((inputElement) => {
 
       const errorElement = form.querySelector(`.form__item-error_name_${inputElement.name}`);
