@@ -1,7 +1,7 @@
 'use strict';
 
 const popupEditProfileElement = document.querySelector('.popup_for_profile-edit');
-const formProfileEditElement = popupEditProfileElement.querySelector('.form_name_profile-edit');
+const formEditProfileElement = popupEditProfileElement.querySelector('.form_name_profile-edit');
 const userNameInputElement = popupEditProfileElement.querySelector('.form__item_name_userName');
 const userActivityInputElement = popupEditProfileElement.querySelector('.form__item_name_userActivity');
 
@@ -86,11 +86,11 @@ function openProfileEditForm() {
   userActivityInputElement.value = userActivityElement.textContent;
   userNameInputElement.classList.remove('form__item_type_error');
   userActivityInputElement.classList.remove('form__item_type_error');
-  formProfileEditElement.querySelectorAll('.form__item-error').forEach((error) => {
+  formEditProfileElement.querySelectorAll('.form__item-error').forEach((error) => {
     error.classList.remove('form__item-error_active');
     error.textContent = '';
   });
-  const button = formProfileEditElement.querySelector('.form__button');
+  const button = formEditProfileElement.querySelector('.form__button');
   button.classList.remove('form__button_inactive');
   button.disabled = false;
   openPopup(popupEditProfileElement);
@@ -141,17 +141,18 @@ initialCards.forEach(function (item) {
 });
 
 
-formProfileEditElement.addEventListener('submit', () => {
-  const inputsList = Array.from(formProfileEditElement.querySelectorAll(inputSelector));
+formEditProfileElement.addEventListener('submit', (evt) => {
+  const inputsList = Array.from(formEditProfileElement.querySelectorAll('.form__item'));
   if (!hasInvalidInput(inputsList)) {
-    writeProfileUser();
+    console.log(hasInvalidInput(inputsList));
+    writeProfileUser(evt);
   }
 });
 
-formAddCardElement.addEventListener('submit', () => {
-  const inputsList = Array.from(formAddCardElement.querySelectorAll(inputSelector));
+formAddCardElement.addEventListener('submit', (evt) => {
+  const inputsList = Array.from(formAddCardElement.querySelectorAll('.form__item'));
   if (!hasInvalidInput(inputsList)) {
-    addCard();
+    addCard(evt);
   }
 });
 

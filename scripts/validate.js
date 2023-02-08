@@ -7,11 +7,11 @@ const setFormsItems = {
   errorClass: 'form__item-error_active'
 };
 
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
+function hasInvalidInput(inputsList) {
+  return inputsList.some((inputElement) => {
     return inputElement.validity.valid === false;
   });
-};
+}
 
 const toggleButtonState = (button, inactiveButtonClass, error) => {
   if (error) {
