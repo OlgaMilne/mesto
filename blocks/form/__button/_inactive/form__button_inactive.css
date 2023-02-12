@@ -7,3 +7,8 @@
   opacity: .2;
   cursor: default;
 }
+
+.form__button_inactive:disabled {
+  cursor: default;
+  opacity: .2;
+}

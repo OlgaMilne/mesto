@@ -1,4 +1,4 @@
-const setFormsItems = {
+const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__item',
   submitButtonSelector: '.form__button',
@@ -9,13 +9,14 @@ const setFormsItems = {
 
 function hasInvalidInput(inputsList) {
   return inputsList.some((inputElement) => {
-    return inputElement.validity.valid === false;
+    return !inputElement.validity.valid;
   });
 }
 
-const toggleButtonState = (button, inactiveButtonClass, error) => {
+function toggleButtonState(button, inactiveButtonClass, error) {
   if (error) {
     button.classList.add(inactiveButtonClass);
+    button.classList.remove('disabled');
     button.disabled = true;
   } else {
     button.classList.remove(inactiveButtonClass);
@@ -39,16 +40,16 @@ const checkInputValidity = (inputElement, errorElement, inputErrorClass, errorCl
 
   let errorMessage = '';
 
-  if (inputElement.value.length === 0) {
+  if (inputElement.validity.valueMissing) {
     errorMessage = 'Вы пропустили это поле.';
     showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
 
-  } else if (inputElement.type === 'text' && inputElement.value.length < inputElement.minLength) {
+  } else if (inputElement.type === 'text' && inputElement.validity.tooShort) {
     errorMessage = `Минимальное число символов: ${inputElement.minLength}. Длина текста
       сейчас\u00A0${inputElement.value.length}\u00A0символ`;
     showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
 
-  } else if (inputElement.type === 'url' && !((inputElement.value.startsWith('http://') && inputElement.value.length > 7) || (inputElement.value.startsWith('https://') && inputElement.value.length > 8))) {
+  } else if (inputElement.type === 'url' && inputElement.validity.typeMismatch) {
     errorMessage = 'Введите адрес сайта';
     showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
 
@@ -57,14 +58,14 @@ const checkInputValidity = (inputElement, errorElement, inputErrorClass, errorCl
   }
 };
 
-const enableValidation = (setFormsItems) => {
+const enableValidation = (validationConfig) => {
 
-  const formsList = Array.from(document.querySelectorAll(setFormsItems.formSelector));
-  const inputSelector = setFormsItems.inputSelector
-  const inputErrorClass = setFormsItems.inputErrorClass;
-  const errorClass = setFormsItems.errorClass;
-  const inactiveButtonClass = setFormsItems.inactiveButtonClass;
-  const submitButtonSelector = setFormsItems.submitButtonSelector;
+  const formsList = Array.from(document.querySelectorAll(validationConfig.formSelector));
+  const inputSelector = validationConfig.inputSelector
+  const inputErrorClass = validationConfig.inputErrorClass;
+  const errorClass = validationConfig.errorClass;
+  const inactiveButtonClass = validationConfig.inactiveButtonClass;
+  const submitButtonSelector = validationConfig.submitButtonSelector;
 
   formsList.forEach((form) => {
 
@@ -84,4 +85,4 @@ const enableValidation = (setFormsItems) => {
   });
 };
 
-enableValidation(setFormsItems);
+enableValidation(validationConfig);
