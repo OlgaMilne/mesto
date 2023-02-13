@@ -26,7 +26,7 @@
 
 .form__button:disabled {
   cursor: default;
-  opacity: 1;
+  opacity: .2;
 }
 
 @media screen and (max-width: 480px) {
