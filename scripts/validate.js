@@ -16,7 +16,6 @@ function hasInvalidInput(inputsList) {
 function toggleButtonState(button, inactiveButtonClass, error) {
   if (error) {
     button.classList.add(inactiveButtonClass);
-    button.classList.remove('disabled');
     button.disabled = true;
   } else {
     button.classList.remove(inactiveButtonClass);
@@ -24,10 +23,10 @@ function toggleButtonState(button, inactiveButtonClass, error) {
   }
 };
 
-const showInputError = (inputElement, errorElement, inputErrorClass, errorClass, errorMessage) => {
+const showInputError = (inputElement, errorElement, inputErrorClass, errorClass) => {
   inputElement.classList.add(inputErrorClass,);
   errorElement.classList.add(errorClass);
-  errorElement.textContent = errorMessage;
+  errorElement.textContent = inputElement.validationMessage;
 };
 
 const hideInputError = (inputElement, errorElement, inputErrorClass, errorClass) => {
@@ -37,22 +36,8 @@ const hideInputError = (inputElement, errorElement, inputErrorClass, errorClass)
 };
 
 const checkInputValidity = (inputElement, errorElement, inputErrorClass, errorClass) => {
-
-  let errorMessage = '';
-
-  if (inputElement.validity.valueMissing) {
-    errorMessage = 'Вы пропустили это поле.';
-    showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
-
-  } else if (inputElement.type === 'text' && inputElement.validity.tooShort) {
-    errorMessage = `Минимальное число символов: ${inputElement.minLength}. Длина текста
-      сейчас\u00A0${inputElement.value.length}\u00A0символ`;
-    showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
-
-  } else if (inputElement.type === 'url' && inputElement.validity.typeMismatch) {
-    errorMessage = 'Введите адрес сайта';
-    showInputError(inputElement, errorElement, inputErrorClass, errorClass, errorMessage);
-
+  if (!inputElement.validity.valid) {
+    showInputError(inputElement, errorElement, inputErrorClass, errorClass);
   } else {
     hideInputError(inputElement, errorElement, inputErrorClass, errorClass);
   }

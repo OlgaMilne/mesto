@@ -106,8 +106,7 @@ function handleOpenProfileEditForm() {
 function handleOpenAddCardForm() {
   formAddCardElement.reset();
   removeErrorClass(formAddCardElement, inputsListAddCard);
-  toggleButtonState(buttonSubmitAddCard, validationConfig.inactiveButtonClass, false);
-  buttonSubmitAddCard.disabled = true;
+  toggleButtonState(buttonSubmitAddCard, validationConfig.inactiveButtonClass, true);
   handleOpenPopup(popupAddCardElement);
 }
 
