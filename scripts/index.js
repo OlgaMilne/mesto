@@ -1,22 +1,18 @@
 'use strict';
 
+import { initialCards } from './utils/utils.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+
 const popupEditProfileElement = document.querySelector('.popup_for_profile-edit');
 const formEditProfileElement = popupEditProfileElement.querySelector('.form_name_profile-edit');
 const userNameInputElement = popupEditProfileElement.querySelector('.form__item_name_userName');
 const userActivityInputElement = popupEditProfileElement.querySelector('.form__item_name_userActivity');
-const buttonSubmitEditProfile = formEditProfileElement.querySelector('.form__button');
-const inputsListEditProfile = Array.from(formEditProfileElement.querySelectorAll('.form__item'));
 
 const popupAddCardElement = document.querySelector('.popup_for_add-card');
 const formAddCardElement = popupAddCardElement.querySelector('.form_name_add-card');
 const locationInputElement = popupAddCardElement.querySelector('.form__item_name_location');
 const linkImageInputElement = popupAddCardElement.querySelector('.form__item_name_linkImage');
-const buttonSubmitAddCard = formAddCardElement.querySelector('.form__button');
-const inputsListAddCard = Array.from(formAddCardElement.querySelectorAll('.form__item'));
-
-const popupImageElement = document.querySelector('.popup_for_image');
-const imageElement = popupImageElement.querySelector('.image-popup__image')
-const captionElement = popupImageElement.querySelector('.image-popup__caption')
 
 const profileElement = document.querySelector('.profile');
 const userNameElement = profileElement.querySelector('.profile__userName');
@@ -25,45 +21,19 @@ const buttonProfileEditElement = profileElement.querySelector('.profile__edit-bu
 const buttonAddCardElement = profileElement.querySelector('.profile__add-button');
 
 const cardsContainer = document.querySelector('.cards');
-const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
 const popupsList = Array.from(document.querySelectorAll('.popup'));
 
+const validationConfig = {
+  inputSelector: '.form__item',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__item_type_error',
+  errorClass: 'form__item-error_active'
+};
 
-function createCard(cardData) {
-  const itemCardElement = cardTemplate.cloneNode(true);
-  const imageCardElement = itemCardElement.querySelector('.card__photo');
-  const captionCardElement = itemCardElement.querySelector('.card__caption');
-  const likeCardElement = itemCardElement.querySelector('.card__like-button');
-  const buttonTrashCardElement = itemCardElement.querySelector('.card__trash-button');
-  captionCardElement.textContent = cardData.location;
-  imageCardElement.src = cardData.link;
-  imageCardElement.alt = cardData.location;
-  imageCardElement.addEventListener('click', () => handleShowImage(cardData));
-  likeCardElement.addEventListener('click', handleLikeCard);
-  buttonTrashCardElement.addEventListener('click', () => handleDeleteCard(itemCardElement));
-  return itemCardElement;
-}
-
-
-function handleDeleteCard(card) {
-  card.remove();
-}
-
-
-function handleLikeCard() {
-  this.classList.toggle('card__like-button_active');
-}
-
-
-function handleClosePopupEsc(evt) {
-  if (evt.key === 'Escape') {
-    const popup = popupsList.find(function (popup) {
-      return Array.from(popup.classList).includes('popup_opened');
-    });
-    handleClosePopup(popup);
-  }
-}
+const formEditProfileValidator = new FormValidator(validationConfig, formEditProfileElement);
+const formAddCardValidator = new FormValidator(validationConfig, formAddCardElement);
 
 
 function handleOpenPopup(popup) {
@@ -78,35 +48,27 @@ function handleClosePopup(popup) {
 }
 
 
-function handleShowImage(cardData) {
-  imageElement.src = cardData.link;
-  imageElement.alt = cardData.location;
-  captionElement.textContent = cardData.location;
-  handleOpenPopup(popupImageElement);
-}
-
-
-function removeErrorClass(form, inputsList) {
-  inputsList.forEach((inputElement) => {
-    const errorElement = form.querySelector(`.form__item-error_name_${inputElement.name}`);
-    hideInputError(inputElement, errorElement, validationConfig.inputErrorClass, validationConfig.errorClass);
-  });
+function handleClosePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popup = popupsList.find(function (popup) {
+      return Array.from(popup.classList).includes('popup_opened');
+    });
+    handleClosePopup(popup);
+  }
 }
 
 
 function handleOpenProfileEditForm() {
   userNameInputElement.value = userNameElement.textContent;
   userActivityInputElement.value = userActivityElement.textContent;
-  removeErrorClass(formEditProfileElement, inputsListEditProfile);
-  toggleButtonState(buttonSubmitEditProfile, validationConfig.inactiveButtonClass, false);
+  formEditProfileValidator.clearValidation(false);
   handleOpenPopup(popupEditProfileElement);
 }
 
 
 function handleOpenAddCardForm() {
   formAddCardElement.reset();
-  removeErrorClass(formAddCardElement, inputsListAddCard);
-  toggleButtonState(buttonSubmitAddCard, validationConfig.inactiveButtonClass, true);
+  formAddCardValidator.clearValidation(true);
   handleOpenPopup(popupAddCardElement);
 }
 
@@ -125,7 +87,9 @@ function handleAddCard(evt) {
     'location': locationInputElement.value,
     'link': linkImageInputElement.value,
   }
-  cardsContainer.prepend(createCard(cardData));
+  const openPopup = handleOpenPopup;
+  const card = new Card(cardData, '#card-template', openPopup);
+  cardsContainer.prepend(card.generateCard());
   handleClosePopup(popupAddCardElement);
 }
 
@@ -135,7 +99,9 @@ initialCards.forEach(function (item) {
     'location': item.name,
     'link': item.link,
   }
-  cardsContainer.prepend(createCard(cardData));
+  const openPopup = handleOpenPopup;
+  const card = new Card(cardData, '#card-template', openPopup);
+  cardsContainer.prepend(card.generateCard());
 });
 
 
@@ -154,3 +120,6 @@ popupsList.forEach((popup) => {
     }
   });
 });
+
+formEditProfileValidator.enableValidation();
+formAddCardValidator.enableValidation();
