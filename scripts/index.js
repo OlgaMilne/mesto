@@ -36,6 +36,17 @@ const formEditProfileValidator = new FormValidator(validationConfig, formEditPro
 const formAddCardValidator = new FormValidator(validationConfig, formAddCardElement);
 
 
+initialCards.forEach(function (item) {
+  const cardData = {
+    'location': item.name,
+    'link': item.link,
+  }
+  const openPopup = handleOpenPopup;
+  const card = new Card(cardData, '#card-template', openPopup);
+  insertCard(card);
+});
+
+
 function handleOpenPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleClosePopupEsc);
@@ -89,20 +100,14 @@ function handleAddCard(evt) {
   }
   const openPopup = handleOpenPopup;
   const card = new Card(cardData, '#card-template', openPopup);
-  cardsContainer.prepend(card.generateCard());
+  insertCard(card);
   handleClosePopup(popupAddCardElement);
 }
 
 
-initialCards.forEach(function (item) {
-  const cardData = {
-    'location': item.name,
-    'link': item.link,
-  }
-  const openPopup = handleOpenPopup;
-  const card = new Card(cardData, '#card-template', openPopup);
+function insertCard(card) {
   cardsContainer.prepend(card.generateCard());
-});
+}
 
 
 formEditProfileElement.addEventListener('submit', handleWriteProfileUser);

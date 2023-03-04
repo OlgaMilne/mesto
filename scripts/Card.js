@@ -21,8 +21,8 @@ export class Card {
 
   _setEventListeners() {
     this.imageCardElement.addEventListener('click', () => this._handleShowImage());
-    this.likeCardElement.addEventListener('click', (evt) => this._handleLikeCard(evt));
-    this.buttonTrashCardElement.addEventListener('click', () => this._handleDeleteCard(this.itemCardElement));
+    this.likeCardElement.addEventListener('click', () => this._handleLikeCard());
+    this.buttonTrashCardElement.addEventListener('click', () => this._handleDeleteCard());
   }
 
   _handleShowImage() {
@@ -32,12 +32,13 @@ export class Card {
     this.openPopup(this.popupImageElement);
   }
 
-  _handleLikeCard(evt) {
-    evt.currentTarget.classList.toggle('card__like-button_active');
+  _handleLikeCard() {
+    this.likeCardElement.classList.toggle('card__like-button_active');
   }
 
-  _handleDeleteCard(card) {
-    card.remove();
+  _handleDeleteCard() {
+    this.itemCardElement.remove();
+    this.itemCardElement = null;
   }
 
   generateCard() {
