@@ -1,5 +1,7 @@
 'use strict';
 
+import './pages/index.css';
+
 import {
   initialCards, userNameInputElement, userActivityInputElement,
   locationInputElement, linkImageInputElement, buttonProfileEditElement,
