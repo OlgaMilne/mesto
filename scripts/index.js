@@ -1,6 +1,11 @@
 'use strict';
 
-import { initialCards } from './utils/utils.js';
+import {
+  initialCards, userNameInputElement, userActivityInputElement,
+  locationInputElement, linkImageInputElement, buttonProfileEditElement,
+  buttonAddCardElement, validationConfig, formEditProfileElement, formAddCardElement
+} from './utils/utils.js';
+
 import { Card } from './components/Card.js';
 import { FormValidator } from './components/FormValidator.js';
 import { Section } from './components/Section.js';
@@ -9,27 +14,7 @@ import { PopupWithForm } from './components/PopupWithForm.js';
 import { UserInfo } from './components/UserInfo.js';
 
 
-const formEditProfileElement = document.querySelector('.form_name_profile-edit');
-const userNameInputElement = formEditProfileElement.querySelector('.form__item_name_userName');
-const userActivityInputElement = formEditProfileElement.querySelector('.form__item_name_userActivity');
-
-const formAddCardElement = document.querySelector('.form_name_add-card');
-const locationInputElement = formAddCardElement.querySelector('.form__item_name_location');
-const linkImageInputElement = formAddCardElement.querySelector('.form__item_name_linkImage');
-
-const profileElement = document.querySelector('.profile');
-const buttonProfileEditElement = profileElement.querySelector('.profile__edit-button');
-const buttonAddCardElement = profileElement.querySelector('.profile__add-button');
-
 const user = new UserInfo('.profile__userName', '.profile__userActivity');
-
-const validationConfig = {
-  inputSelector: '.form__item',
-  submitButtonSelector: '.form__button',
-  inactiveButtonClass: 'form__button_inactive',
-  inputErrorClass: 'form__item_type_error',
-  errorClass: 'form__item-error_active'
-};
 
 
 const formEditProfileValidator = new FormValidator(validationConfig, formEditProfileElement);
