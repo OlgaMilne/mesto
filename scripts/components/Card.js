@@ -1,5 +1,5 @@
 export class Card {
-  constructor(cardData, templateSelector, openPopup) {
+  constructor({ cardData, handleCardClick }, templateSelector) {
     this.location = cardData.location;
     this.image = cardData.link;
     this.templateSelector = templateSelector;
@@ -11,7 +11,7 @@ export class Card {
     this.captionCardElement = this.itemCardElement.querySelector('.card__caption');
     this.likeCardElement = this.itemCardElement.querySelector('.card__like-button');
     this.buttonTrashCardElement = this.itemCardElement.querySelector('.card__trash-button');
-    this.openPopup = openPopup;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -26,10 +26,14 @@ export class Card {
   }
 
   _handleShowImage() {
-    this.imageElement.src = this.image;
-    this.imageElement.alt = this.location;
-    this.captionElement.textContent = this.location;
-    this.openPopup(this.popupImageElement);
+
+    const dataImage = {
+      src: this.image,
+      alt: this.location,
+      imageElement: this.imageElement,
+      captionElement: this.captionElement,
+    }
+    this._handleCardClick(dataImage, '.popup_for_image');
   }
 
   _handleLikeCard() {
@@ -50,4 +54,5 @@ export class Card {
 
     return this.itemCardElement;
   }
+
 }
