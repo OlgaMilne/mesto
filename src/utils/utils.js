@@ -1,4 +1,4 @@
-export  const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -31,8 +31,6 @@ export const userNameInputElement = formEditProfileElement.querySelector('.form_
 export const userActivityInputElement = formEditProfileElement.querySelector('.form__item_name_userActivity');
 
 export const formAddCardElement = document.querySelector('.form_name_add-card');
-export const locationInputElement = formAddCardElement.querySelector('.form__item_name_location');
-export const linkImageInputElement = formAddCardElement.querySelector('.form__item_name_linkImage');
 
 const profileElement = document.querySelector('.profile');
 export const buttonProfileEditElement = profileElement.querySelector('.profile__edit-button');

@@ -6,13 +6,13 @@ export class UserInfo {
 
   getUserInfo() {
     return {
-      name: this._name.textContent,
-      activity: this._activity.textContent,
+      'userName': this._name.textContent,
+      'userActivity': this._activity.textContent,
     }
   }
 
-  setUserInfo({ name, activity }) {
-    this._name.textContent = name;
-    this._activity.textContent = activity;
+  setUserInfo( {userName, userActivity} ) {
+    this._name.textContent = userName;
+    this._activity.textContent = userActivity;
   }
 }
